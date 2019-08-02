@@ -1,0 +1,11 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.chethan.mercari">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".testing.SingleFragmentActivity"></activity>
+    </application>
+
+</manifest>

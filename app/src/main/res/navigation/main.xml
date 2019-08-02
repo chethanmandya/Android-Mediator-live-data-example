@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            app:startDestination="@id/searchproductsFragment">
+
+    <fragment
+            android:id="@+id/searchproductsFragment"
+            android:name="com.chethan.mercari.view.productCategory.ProductCategoryFragment"
+            android:label="ProductCategoryFragment">
+        <action
+                android:id="@+id/showDetailsScreen"
+                app:destination="@id/productDetailFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/productDetailFragment"
+            android:name="com.chethan.mercari.view.productdetail.productDetailFragment"
+            android:label="productDetailFragment">
+        <argument
+                android:name="venuId"
+                app:argType="string"/>
+        <argument
+                android:name="venuName"
+                app:argType="string"/>
+
+    </fragment>
+
+</navigation>
