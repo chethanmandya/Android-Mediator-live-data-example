@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="com.chethan.mercari.repository.Resource" />
+        <import type="com.chethan.babylon.repository.Resource" />
 
-        <import type="com.chethan.mercari.repository.Status" />
+        <import type="com.chethan.babylon.repository.Status" />
 
         <variable
             name="resource"

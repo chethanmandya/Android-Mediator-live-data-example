@@ -1,9 +1,4 @@
 <resources>
-    <string name="app_name">Mercari</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="product_photo">photo</string>
-    <string name="product_name">name</string>
+    <string name="app_name">Babylon</string>
     <string name="unknown_error">Unknown Error</string>
-    <string name="empty_search_result">No results for <b>%s</b></string>
 </resources>

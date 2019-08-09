@@ -1,0 +1,102 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.LiveData"/>
+
+        <import type="com.chethan.babylon.repository.Resource"/>
+
+        <import type="com.bumptech.glide.request.RequestListener"/>
+
+        <import type="com.chethan.babylon.model.PostWithComments"/>
+
+        <variable
+                name="args"
+                type="com.chethan.babylon.view.postDetail.UserPostDetailFragment"/>
+
+
+        <variable
+                name="userPosts"
+                type="com.chethan.babylon.model.Posts"/>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/userProfile"
+                app:cardUseCompatPadding="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                <ImageView
+                        android:id="@+id/userAvatarImage"
+                        android:layout_width="@dimen/photo_size"
+                        android:layout_height="@dimen/photo_size"
+                        android:scaleType="centerCrop"
+                        app:userAvatarImageUrl="@{userPosts.userId}"
+                        tools:layout_editor_absoluteX="8dp"
+                        tools:layout_editor_absoluteY="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                />
+
+                <TextView
+                        android:id="@+id/name"
+                        style="@style/TextAppearance.AppCompat.Headline"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="@{userPosts.title}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+                        app:layout_constraintTop_toTopOf="@+id/userAvatarImage"
+                        app:visibleGone="@{userPosts != null}"
+                        tools:text="Title"/>
+
+
+                <TextView
+                        android:id="@+id/description"
+                        style="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="@{`Description : ` + userPosts.body }"
+                        app:layout_constraintTop_toBottomOf="@+id/name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+                        app:visibleGone="@{userPosts != null}"
+                        tools:text="description of the Post"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="User Comments : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userProfile"
+                app:visibleGone="@{userPosts != null}"
+                tools:text="User Comments : "/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

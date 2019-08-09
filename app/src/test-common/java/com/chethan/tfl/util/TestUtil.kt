@@ -1,7 +1,8 @@
-package com.chethan.mercari.util
+package com.chethan.babylon.util
 
-import com.chethan.mercari.model.ProductCategory
-import com.chethan.mercari.model.ProductOverview
+import com.chethan.babylon.model.Comments
+import com.chethan.babylon.model.Posts
+import com.chethan.babylon.model.Users
 
 
 /**
@@ -10,77 +11,135 @@ import com.chethan.mercari.model.ProductOverview
 object TestUtil {
 
 
-    fun getCategoryItem(): ProductCategory {
-        return createProductCategoryItem("All", "https://s3-ap-northeast-1.amazonaws.com/m-et/Android/json/all.json")
-    }
-
-    fun getProductsItem(): ProductOverview {
-        return createProductItem(
-            "mmen1",
-            "men1",
-            "on_sale",
-            "91",
-            "59",
-            "51",
-            "https://dummyimage.com/400x400/000/fff?text=men1"
+    fun getUser(): Users {
+        return createUserItem(
+            "1", "Leanne Graham",
+            "Bret",
+            "Sincere@april.biz",
+            "1-770-736-8031 x56442",
+            "hildegard.org",
+            ""
         )
     }
 
-    fun createProductItem(
+    fun getUserPost(): Posts {
+        return createUserPostItem(
+            "1", "1", "sunt aut facere repellat provident occaecati excepturi optio reprehenderit", "" +
+                    "quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto"
+        )
+    }
+
+    fun getUserCommentItem(): Comments {
+        return createCommentItem(
+            "1",
+            "1",
+            "id labore ex et quam laborum",
+            "Eliseo@gardner.biz",
+            "laudantium enim quasi est quidem magnam voluptate ipsam eos\\ntempora quo necessitatibus\\ndolor quam autem quasi\\nreiciendis et nam sapiente accusantium"
+        )
+    }
+
+    fun createUserPostItem(
+        userId: String,
         id: String,
-        name: String,
-        status: String,
-        numLikes: String,
-        numComments: String,
-        price: String,
-        photo: String
-    ) = ProductOverview(
-        id = id,
-        name = name,
-        status = status,
-        num_likes = numLikes,
-        num_comments = numComments,
-        price = price,
-        photo = photo
+        title: String,
+        body: String
+    ) = Posts(
+        userId,
+        id,
+        title,
+        body
     )
 
-    fun createProductCategoryItem(
-        name: String,
-        data: String
-    ) = ProductCategory(
-        name = name,
-        data = data
-    )
 
-    fun createProductCategoryArrayList(item: ProductCategory): List<ProductCategory> {
-        val list: ArrayList<ProductCategory> = arrayListOf<ProductCategory>()
+    fun createUserPostArrayList(item: Posts): List<Posts> {
+        val list: ArrayList<Posts> = arrayListOf<Posts>()
+        for (i in 1..100)
         list.add(
-            ProductCategory(
-                item.name,
-                item.data!!
+            createUserPostItem(
+                i.toString(),
+                i.toString(),
+                item.title + " "+ i.toString(),
+                item.body
             )
         )
         return list
     }
 
-    fun createProductOverviewArrayList(item: ProductOverview): List<ProductOverview> {
-        val list: ArrayList<ProductOverview> = arrayListOf<ProductOverview>()
+    /**
+     *  User Comments
+     */
+    fun createUserCommentsArrayList(item: Comments): List<Comments> {
+        val list: ArrayList<Comments> = arrayListOf<Comments>()
         for (i in 1..10)
             list.add(
-                createProductItem(
-                    "mmen" + i,
-                    item.name!!,
-                    item.status,
-                    item.num_likes,
-                    item.num_comments,
-                    item.price,
-                    item.photo
+                createCommentItem(
+                    i.toString(),
+                    i.toString(),
+                    item.name,
+                    item.email,
+                    item.body
                 )
             )
-
-
         return list
     }
+
+
+    fun createCommentItem(
+        postId: String,
+        id: String,
+        name: String,
+        email: String,
+        body: String
+    ) = Comments(
+        postId = postId,
+        id = id,
+        name = name,
+        email = email,
+        body = body
+    )
+
+
+    /**
+     *  Users
+     */
+
+    fun createUserList(item: Users): List<Users> {
+        val list: ArrayList<Users> = arrayListOf<Users>()
+        for (i in 1..10)
+            list.add(
+                createUserItem(
+                    item.id,
+                    item.name,
+                    item.username,
+                    item.email,
+                    item.phone,
+                    item.website,
+                    item.company
+                )
+            )
+        return list
+    }
+
+
+    fun createUserItem(
+        id: String,
+        name: String,
+        username: String,
+        email: String,
+        phone: String,
+        website: String,
+        company: String
+    ) = Users(
+        id = id,
+        name = name,
+        username = username,
+        email = email,
+        phone = phone,
+        website = website,
+        company = company
+    )
+
 }
 
 

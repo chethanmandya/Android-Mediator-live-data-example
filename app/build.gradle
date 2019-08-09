@@ -8,20 +8,20 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
-    annotation 'com.chethan.mercari.testing.OpenClass'
+    annotation 'com.chethan.babylon.testing.OpenClass'
 }
 
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "com.chethan.mercari"
+        applicationId "com.chethan.babylon"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.chethan.mericari.util.TestRunner"
+        testInstrumentationRunner "com.chethan.babylon.util.TestRunner"
 
 
     }
@@ -108,8 +108,6 @@ dependencies {
 
     // Facebook stetho to view database - chrome://inspect
     implementation 'com.facebook.stetho:stetho:1.5.0'
-
-
 
 
 }

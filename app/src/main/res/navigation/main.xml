@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:android="http://schemas.android.com/apk/res/android"
-            app:startDestination="@id/searchproductsFragment">
+            app:startDestination="@id/userPostFragment">
 
     <fragment
-            android:id="@+id/searchproductsFragment"
-            android:name="com.chethan.mercari.view.productCategory.ProductCategoryFragment"
-            android:label="ProductCategoryFragment">
+            android:id="@+id/userPostFragment"
+            android:name="com.chethan.babylon.view.userposts.UserPostFragment"
+            android:label="SearchVenuesFragment">
         <action
                 android:id="@+id/showDetailsScreen"
-                app:destination="@id/productDetailFragment"/>
+                app:destination="@id/userPostDetailFragment"/>
     </fragment>
     <fragment
-            android:id="@+id/productDetailFragment"
-            android:name="com.chethan.mercari.view.productdetail.productDetailFragment"
-            android:label="productDetailFragment">
+            android:id="@+id/userPostDetailFragment"
+            android:name="com.chethan.babylon.view.postDetail.UserPostDetailFragment"
+            android:label="postDetailFragment">
         <argument
-                android:name="venuId"
+                android:name="postId"
                 app:argType="string"/>
         <argument
-                android:name="venuName"
+                android:name="postName"
                 app:argType="string"/>
 
     </fragment>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="posts"
+                type="com.chethan.babylon.model.Posts"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+            <ImageView
+                    android:id="@+id/userAvatarImage"
+                    android:layout_width="@dimen/photo_size"
+                    android:layout_height="@dimen/photo_size"
+                    android:scaleType="centerCrop"
+                    app:userAvatarImageUrl="@{posts.userId}"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+            />
+
+            <TextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:text="@{`Title : ` +posts.title}"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text=""/>
+
+            <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginTop="8dp"
+                    android:text="@{`Desc : ` + posts.body}"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:layout_editor_absoluteX="@dimen/default_margin"
+                    tools:text=""/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
