@@ -1,7 +1,3 @@
-Coding assignment
-Requirement :
-Please find below link to understand the requirement -
-https://github.com/Babylonpartners/android-playbook/blob/master/recruitment/code_challenge.md
 
 ## How to Build project
 You can open the project in Android studio and press run.
